@@ -1,0 +1,25 @@
+Device: cuda
+GPU: NVIDIA GeForce RTX 4050 Laptop GPU
+train: 400 pairs
+val: 100 pairs
+
+Starting training: 10 epochs
+Input size: 640x360 | Batch size: 4
+Epoch 01/10 | train_loss=0.3801 | train_IoU=0.0949 | val_loss=0.2741 | val_IoU=0.0562 | time=7.2s
+  Saved best model: /home/emir/adas_training/best_lane_cnn.pth
+Epoch 02/10 | train_loss=0.1966 | train_IoU=0.2314 | val_loss=0.1532 | val_IoU=0.2496 | time=6.9s
+  Saved best model: /home/emir/adas_training/best_lane_cnn.pth
+Epoch 03/10 | train_loss=0.1194 | train_IoU=0.2957 | val_loss=0.1039 | val_IoU=0.2209 | time=6.9s
+Epoch 04/10 | train_loss=0.0875 | train_IoU=0.3211 | val_loss=0.0864 | val_IoU=0.2913 | time=7.6s
+  Saved best model: /home/emir/adas_training/best_lane_cnn.pth
+Epoch 05/10 | train_loss=0.0716 | train_IoU=0.3530 | val_loss=0.0790 | val_IoU=0.2897 | time=7.0s
+Epoch 06/10 | train_loss=0.0629 | train_IoU=0.3699 | val_loss=0.0746 | val_IoU=0.3265 | time=6.6s
+  Saved best model: /home/emir/adas_training/best_lane_cnn.pth
+Epoch 07/10 | train_loss=0.0575 | train_IoU=0.3867 | val_loss=0.0729 | val_IoU=0.3408 | time=6.6s
+  Saved best model: /home/emir/adas_training/best_lane_cnn.pth
+Epoch 08/10 | train_loss=0.0540 | train_IoU=0.3979 | val_loss=0.0647 | val_IoU=0.3154 | time=6.8s
+Epoch 09/10 | train_loss=0.0513 | train_IoU=0.4085 | val_loss=0.0794 | val_IoU=0.3016 | time=7.2s
+Epoch 10/10 | train_loss=0.0492 | train_IoU=0.4198 | val_loss=0.0770 | val_IoU=0.3190 | time=6.6s
+
+Training complete. Best validation IoU: 0.3408
+Best model: /home/emir/adas_training/best_lane_cnn.pth

@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="car">
+
+    <xacro:macro name="camera" params="name xyz rpy">
+        <link name="camera_${name}_link">
+            <visual>
+                <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+                <geometry>
+                    <box size="0.032 0.05 0.05" />
+                </geometry>
+            </visual>
+            <collision>
+                <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+                <geometry>
+                    <box size="0.032 0.05 0.05" />
+                </geometry>
+            </collision>
+            <xacro:inertial_box mass="0.01" x="0.032" y="0.05" z="0.05" xyz="0 0 0" rpy="0 0 0" />
+        </link>
+
+        <joint name="camera_${name}_joint" type="fixed">
+            <parent link="shell_link" />
+            <child link="camera_${name}_link" />
+            <origin xyz="${xyz}" rpy="${rpy}" />
+        </joint>
+
+        <gazebo reference="camera_${name}_link">
+            <material>Gazebo/Purple</material>
+            <sensor name="${name}" type="camera">
+                <!-- <pose>0 0 0 0 0 0</pose> -->
+                <pose>0 0 0 0 0.20 0</pose>
+                <visualize>true</visualize>
+                <update_rate>60</update_rate>    <!-- kemira hz -->
+                <camera>
+                    <!-- <horizontal_fov>1.089</horizontal_fov> -->
+                    <horizontal_fov>1.4</horizontal_fov>
+                    <image>
+                        <format>R8G8B8</format>
+                        <width>640</width>
+                        <height>480</height>
+                    </image>
+                    <clip>
+                        <near>0.05</near>
+                        <far>8.0</far>
+                    </clip>
+                </camera>
+                <plugin name="camera_controller_${name}" filename="libgazebo_ros_camera.so">
+                    <frame_name>camera_${name}_link</frame_name>
+                </plugin>
+            </sensor>
+
+        </gazebo>
+    </xacro:macro>
+
+
+    <!-- <xacro:camera name="front" xyz="0.9 0.0 0.2" rpy="0 0 0 " /> -->
+    <xacro:camera name="front" xyz="1.1 0.0 0.45" rpy="0 0.10 0" />
+    <xacro:camera name="back" xyz="-1.475 0 0" rpy="0 0 ${pi}" />
+
+    <!-- <xacro:camera name="right" xyz="0.3 0.5 0.3" rpy="0 0 ${pi/9}" />  -->    
+
+</robot>

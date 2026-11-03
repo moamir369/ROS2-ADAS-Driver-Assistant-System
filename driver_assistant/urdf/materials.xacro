@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <material name="car_body"><color rgba="0.75 0.08 0.08 1.0"/></material>
+    <material name="tire_black"><color rgba="0.06 0.06 0.06 1.0"/></material>
+    <material name="camera_gray"><color rgba="0.2 0.2 0.25 1.0"/></material>
+</robot>

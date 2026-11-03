@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="car">
+    <link name="base_link" />
+    <link name="shell_link">
+        <visual>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 ${pi / 2}" />
+            <geometry>
+                <mesh filename="file://$(find driver_assistant)/meshes/shell.dae" />
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <box size="2.95 1.55 1.1" />
+            </geometry>
+        </collision>
+        <xacro:inertial_box mass="20" x="2.95" y="1.55" z="1.1" xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+    </link>
+
+    <joint name="shell_joint" type="fixed">
+        <origin xyz="0.0 0.0 0.35" rpy="0.0 0.0 0.0" />
+        <parent link="base_link" />
+        <child link="shell_link" />
+        <axis xyz="0.0 0.0 0.0" />
+        <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0" />
+    </joint>
+
+</robot>
